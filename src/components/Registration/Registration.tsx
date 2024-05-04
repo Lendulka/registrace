@@ -1,5 +1,5 @@
-import './Registration.css'
 import { useEffect, useState } from 'react'
+import './Registration.css'
 
 interface FormStructure {
     email: string;
@@ -13,7 +13,7 @@ interface ErrorStructure {
     passwordConfirm: string;
 }
 
-export const Registration = () => {
+export const Registration: React.FC<{}> = () => {
 
     const [user, setUser] = useState<FormStructure>({
         email: "",
@@ -33,7 +33,6 @@ export const Registration = () => {
         if (user.email !== "") {
             let index: number = user.email.indexOf("@")
             if (index === (-1)) {
-                setUser({ ...user, email: "", username: "" })
                 setError({ ...error, email: "Incorrect e-mail format" })
             } else {
                 setUser({ ...user, username: user.email.slice(0, index) })
@@ -46,37 +45,20 @@ export const Registration = () => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
 
-    /*
-        const handleUserChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            let index: number = user.email.indexOf("@")
-            if (user.username === "" && index !== (-1)) {
-                setUser({ ...user, [e.target.name]: user.email.slice(0, index) })
-                setError({ ...error, email: "" })
-                console.log(index)
-            } else {
-                setUser({ ...user, email: "", username: "" })
-                setError({ ...error, email: "Incorrect e-mail format" })
-                alert("Email musí obsahovat @")
-            }
-        }
-    */
-
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (user.password === user.passwordConfirm) {
-            setError({ ...error, passwordConfirm: "" })
             setSubmitted(true)
             console.log(user)
         } else {
-            setError({ ...error, passwordConfirm: "Passwords do not match" })
-            /*alert("Přihlášení nebylo úspěšné.")*/
+            setError({ ...error, passwordConfirm: "Password does not match" })
             setUser({ ...user, password: "", passwordConfirm: "" })
         }
     }
 
     return (
         <div className="form__container">
-            <h1>REGISTRATION</h1>
+
             {submitted ? (
                 <div>Login was successful!</div>
             ) : (
@@ -99,7 +81,6 @@ export const Registration = () => {
                         value={user.username}
                         placeholder="User Name"
                         aria-label="User Name"
-                        /*onChange={handleUserChange}*/
                         readOnly
                         required
                     />
@@ -127,7 +108,6 @@ export const Registration = () => {
 
                     {error.email && <div>{error.email}</div>}
                     {error.passwordConfirm && <div>{error.passwordConfirm}</div>}
-
                 </form>
             )}
         </div>
