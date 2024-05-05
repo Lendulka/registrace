@@ -5,7 +5,7 @@ V projektu připraveném v tomto repozitáři vytvořte React komponentu Registr
 ![komponenta Registration](/ukazky/registrace-ukazka.png)
 
 1. Vytvořte složku `src/components` a založte v ní komponentu Registration.
-1. V komponentě vytvořte jeden stav `user`. Ve stavu bude objekt reprezentující všechna data ve formuláři. Objekt bude mít následující strukturu:
+2. V komponentě vytvořte jeden stav `user`. Ve stavu bude objekt reprezentující všechna data ve formuláři.<br> Objekt bude mít následující strukturu:
 
 ```jsx
 {
@@ -16,6 +16,6 @@ V projektu připraveném v tomto repozitáři vytvořte React komponentu Registr
 }
 ```
 
-1. Provažte obsah formuláře se stavem `user`.
-1. Budeme chtít, aby se ve formuláři automaticky vyplnilo políčko User Name, pokud je User Name prázdné a pokud uživatel zadá validní email. Validní email poznáme tak, že obsahuje zavináč. Do User Name se pak vyplní část emailu před zavináčem.
-1. Tlačítko pro odeslání formuláře nechť vypíše stavový objekt do konzole.
+3. Provažte obsah formuláře se stavem `user`.
+4. Budeme chtít, aby se ve formuláři automaticky vyplnilo políčko User Name, pokud je User Name prázdné a pokud uživatel zadá validní email. Validní email poznáme tak, že obsahuje zavináč. Do User Name se pak vyplní část emailu před zavináčem.
+5. Tlačítko pro odeslání formuláře nechť vypíše stavový objekt do konzole.
