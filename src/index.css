@@ -1,7 +1,18 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
 body {
-    height: 100vh;
-    margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+    margin: 1rem;
     background: #e7e7e4;
+    min-height: 100vh;
 }
 
 :root {

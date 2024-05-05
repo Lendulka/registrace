@@ -1,0 +1,10 @@
+.form__success {
+    background-color: #42b883;
+    color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem 2.5rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: center;
+}

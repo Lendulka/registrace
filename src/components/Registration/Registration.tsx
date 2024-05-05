@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { SuccessMessage } from '../SuccessMessage/SuccessMessage'
+import UserImage from '/user-image-blue.svg'
 import './Registration.css'
 
 interface FormStructure {
@@ -58,57 +60,60 @@ export const Registration: React.FC<{}> = () => {
 
     return (
         <div className="form__container">
-
             {submitted ? (
-                <div>Login was successful!</div>
+                <SuccessMessage />
             ) : (
-                <form className="form" onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        className="form__input"
-                        name="email"
-                        defaultValue={user.email}
-                        placeholder="Email Address"
-                        aria-label="Email Address"
-                        onChange={handleChange}
-                        required
-                        autoFocus
-                    />
-                    <input
-                        type="text"
-                        className="form__input"
-                        name="username"
-                        value={user.username}
-                        placeholder="User Name"
-                        aria-label="User Name"
-                        readOnly
-                        required
-                    />
-                    <input
-                        type="password"
-                        className="form__input"
-                        name="password"
-                        value={user.password}
-                        placeholder="Password"
-                        aria-label="Password"
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="password"
-                        className="form__input"
-                        name="passwordConfirm"
-                        value={user.passwordConfirm}
-                        placeholder="Confirm Password"
-                        aria-label="Confirm Password"
-                        onChange={handleChange}
-                        required
-                    />
-                    <button className="form__button" type="submit">REGISTER</button>
+                <>
+                    <img className="form__img" src={UserImage} alt="user-icon" width={200} height={200} />
+                    <form className="form" onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            className="form__input"
+                            name="email"
+                            defaultValue={user.email}
+                            placeholder="Email Address"
+                            aria-label="Email Address"
+                            onChange={handleChange}
+                            required
+                            autoFocus
+                            spellCheck={false}
+                        />
+                        <input
+                            type="text"
+                            className="form__input"
+                            name="username"
+                            value={user.username}
+                            placeholder="User Name"
+                            aria-label="User Name"
+                            readOnly
+                            required
+                        />
+                        <input
+                            type="password"
+                            className="form__input"
+                            name="password"
+                            value={user.password}
+                            placeholder="Password"
+                            aria-label="Password"
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="password"
+                            className="form__input"
+                            name="passwordConfirm"
+                            value={user.passwordConfirm}
+                            placeholder="Confirm Password"
+                            aria-label="Confirm Password"
+                            onChange={handleChange}
+                            required
+                        />
+                        <button className="form__button" type="submit">REGISTER</button>
 
-                    {error.email && <div>{error.email}</div>}
-                    {error.passwordConfirm && <div>{error.passwordConfirm}</div>}
-                </form>
+                        {error.email && <div className="form__error">{error.email}</div>}
+                        {error.passwordConfirm && <div className="form__error">{error.passwordConfirm}</div>}
+                    </form>
+                </>
             )}
         </div>
     )
