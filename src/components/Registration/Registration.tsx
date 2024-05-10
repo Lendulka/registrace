@@ -15,7 +15,7 @@ interface ErrorStructure {
     passwordConfirm: string;
 }
 
-export const Registration: React.FC<{}> = () => {
+export const Registration: React.FC = () => {
 
     const [user, setUser] = useState<FormStructure>({
         email: "",
